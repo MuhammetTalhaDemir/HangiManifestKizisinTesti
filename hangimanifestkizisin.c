@@ -2,14 +2,15 @@
 
 char soru_sor(int sira, char *metin, char *siklar);
 void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan, int esin_puan, int zoktay_puan);
+void manifest_baslik();
 
 int main() {
     int tekrar;
     int hilal_puan = 0, sueda_puan = 0, mina_puan = 0, lidya_puan = 0, esin_puan = 0, zoktay_puan = 0;
     char cevap;
 
-        
-    printf("\nHANGI MANIFEST KIZISIN TESTI\n\n");
+    manifest_baslik();    
+    
 
   do {
 
@@ -152,3 +153,13 @@ char soru_sor(int sira, char *metin, char *siklar) {
             }
 
     }
+
+void manifest_baslik() {
+    printf("  _   _                   _    __  __             _  __           _      _  __            _            ___  \n");
+    printf(" | | | | __ _ _ __   __ _(_)  |  \\/  | __ _ _ __ (_)/ _| ___  ___| |_   | |/ /_ _____ ___(_)_ __ _    |__ \\ \n");
+    printf(" | |_| |/ _` | '_ \\ / _` | |  | |\\/| |/ _` | '_ \\| | |_ / _ \\/ __| __|  | ' /| |_  / / __| | | '_ \\     / / \n");
+    printf(" |  _  | (_| | | | | (_| | |  | |  | | (_| | | | | |  _|  __/\\__ \\ |_   | . \\| |/ /| \\__ \\ | | | | |   |_|  \n");
+    printf(" |_| |_|\\__,_|_| |_|\\__, |_|  |_|  |_|\\__,_|_| |_|_|_|  \\___||___/\\__|  |_|\\_\\_/___|_|___/_|_|_| |_|   (_)  \n");
+    printf("                    |___/                                                                                    \n");
+    printf("\n                                    --- TEST BASLIYOR --- \n\n");
+}
