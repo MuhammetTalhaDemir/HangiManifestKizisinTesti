@@ -11,7 +11,6 @@ int main() {
 
     manifest_baslik();    
     
-
   do {
 
     cevap = soru_sor(1, "Soru 1: Bir pazar sabahi planin iptal olsa tepkin ne olur?", 
@@ -114,7 +113,7 @@ char soru_sor(int sira, char *metin, char *siklar) {
     return secim;
 }
 
-    void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan, int esin_puan, int zoktay_puan) {
+void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan, int esin_puan, int zoktay_puan) {
             int max_puan = hilal_puan;
             int kazanan_kod = 1;
 
@@ -155,11 +154,11 @@ char soru_sor(int sira, char *metin, char *siklar) {
     }
 
 void manifest_baslik() {
-    printf("  _   _                   _    __  __             _  __           _      _  __            _            ___  \n");
-    printf(" | | | | __ _ _ __   __ _(_)  |  \\/  | __ _ _ __ (_)/ _| ___  ___| |_   | |/ /_ _____ ___(_)_ __ _    |__ \\ \n");
-    printf(" | |_| |/ _` | '_ \\ / _` | |  | |\\/| |/ _` | '_ \\| | |_ / _ \\/ __| __|  | ' /| |_  / / __| | | '_ \\     / / \n");
-    printf(" |  _  | (_| | | | | (_| | |  | |  | | (_| | | | | |  _|  __/\\__ \\ |_   | . \\| |/ /| \\__ \\ | | | | |   |_|  \n");
-    printf(" |_| |_|\\__,_|_| |_|\\__, |_|  |_|  |_|\\__,_|_| |_|_|_|  \\___||___/\\__|  |_|\\_\\_/___|_|___/_|_|_| |_|   (_)  \n");
+     printf("  _   _                   _    __  __             _  __           _      _  __                       ___  \n");
+    printf(" | | | | __ _ _ __   __ _(_)  |  \\/  | __ _ _ __ (_)/ _| ___  ___| |_   | |/ /_ _____ ___ _ __ _    |__ \\ \n");
+    printf(" | |_| |/ _` | '_ \\ / _` | |  | |\\/| |/ _` | '_ \\| | |_ / _ \\/ __| __|  | ' /| |_  / / __| | '_ \\     / / \n");
+    printf(" |  _  | (_| | | | | (_| | |  | |  | | (_| | | | | |  _|  __/\\__ \\ |_   | . \\| |/ /| \\__ \\ | | | |   |_|  \n");
+    printf(" |_| |_|\\__,_|_| |_|\\__, |_|  |_|  |_|\\__,_|_| |_|_|_|  \\___||___/\\__|  |_|\\_\\_/___|_|___/_|_| |_|   (_)  \n");
     printf("                    |___/                                                                                    \n");
     printf("\n                                    --- TEST BASLIYOR --- \n\n");
 }
