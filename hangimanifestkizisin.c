@@ -1,17 +1,23 @@
 #include <stdio.h>
+#include <windows.h>
 
 char soru_sor(int sira, char *metin, char *siklar);
 void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan, int esin_puan, int zoktay_puan);
 void manifest_baslik();
+void gerisayim(int n);
 
 int main() {
     int tekrar;
     int hilal_puan = 0, sueda_puan = 0, mina_puan = 0, lidya_puan = 0, esin_puan = 0, zoktay_puan = 0;
     char cevap;
 
-    manifest_baslik();    
-    
+    manifest_baslik(); 
+   
   do {
+
+    Sleep(1000);
+    gerisayim(3);
+    Sleep(1000);   
 
     cevap = soru_sor(1, "Soru 1: Bir pazar sabahi planin iptal olsa tepkin ne olur?", 
                          "A)\"Vardir bir hayir\" deyip meditasyonuma devam ederim.\nB) Planin neden iptal oldugunu adim adim sorgular, mantikli bir aciklama beklerim.\nC) Zaten cok yorgundum, uyumak icin harika bir firsat!\nD) Iptal eden kisiye biraz bozulurum ama hemen baska bir arkadasimi ararim.\nE) Evde kalmisken dolabimi duzenler, gelecek haftanin planini yaparim. \nF) Madem disari cikmiyoruz, ben de evde en sik pijama takimimla bakim yaparim.\n");
@@ -77,14 +83,15 @@ int main() {
             case 'D': case 'd': mina_puan++; break;
             case 'E': case 'e': zoktay_puan++; break;
             case 'F': case 'f': sueda_puan++; break;          
-        }
-    
+        }    
 
     sonucu_goster(hilal_puan, sueda_puan, mina_puan, lidya_puan, esin_puan, zoktay_puan);
 
+    Sleep(1000);
     printf("\nTekrar denemek ister misin? Evet icin 1, Hayir icin 0 girirniz: ");
     scanf("%d", &tekrar);
 
+    getchar();
     printf("\n");
 
     hilal_puan = 0; sueda_puan = 0; mina_puan = 0; lidya_puan = 0; esin_puan = 0; zoktay_puan = 0;
@@ -103,6 +110,8 @@ char soru_sor(int sira, char *metin, char *siklar) {
     do {
         printf("\n%s\n%s\nCevabiniz (A-F): ", metin, siklar);
         scanf(" %c", &secim);
+
+        getchar();
 
         if ((secim >= 'A' && secim <= 'F') || (secim >= 'a' && secim <= 'f')) {
             gecerli = 1;
@@ -141,7 +150,13 @@ void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan
                 max_puan = zoktay_puan;
                 kazanan_kod = 6;
             }
-        printf("\nTEST SONUCU:\n");
+
+        Sleep(1000);
+        printf("\nTest Sonucu Hesaplaniyor...\n");
+        Sleep(1000);
+        gerisayim(3);
+        Sleep(1000);
+        printf("\nSONUC:\n");
                 switch (kazanan_kod) {
                 case 1: printf("Hilal!\n"); break;
                 case 2: printf("Sueda!\n"); break;
@@ -153,6 +168,20 @@ void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan
 
     }
 
+void gerisayim(int n) {
+
+    if (n == 1) {
+        printf("%d...\n", n);
+        return; 
+    }
+
+    printf("%d...\n", n);
+    
+    Sleep(1000); 
+
+    gerisayim(n - 1);
+}
+
 void manifest_baslik() {
      printf("  _   _                   _    __  __             _  __           _      _  __                       ___  \n");
     printf(" | | | | __ _ _ __   __ _(_)  |  \\/  | __ _ _ __ (_)/ _| ___  ___| |_   | |/ /_ _____ ___ _ __ _    |__ \\ \n");
@@ -160,5 +189,6 @@ void manifest_baslik() {
     printf(" |  _  | (_| | | | | (_| | |  | |  | | (_| | | | | |  _|  __/\\__ \\ |_   | . \\| |/ /| \\__ \\ | | | |   |_|  \n");
     printf(" |_| |_|\\__,_|_| |_|\\__, |_|  |_|  |_|\\__,_|_| |_|_|_|  \\___||___/\\__|  |_|\\_\\_/___|_|___/_|_| |_|   (_)  \n");
     printf("                    |___/                                                                                    \n");
+    Sleep(1000);
     printf("\n                                    --- TEST BASLIYOR --- \n\n");
 }
