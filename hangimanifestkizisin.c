@@ -3,8 +3,9 @@
 
 char soru_sor(int sira, char *metin, char *siklar);
 void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan, int esin_puan, int zoktay_puan);
+int tekrar_baslat();
 void manifest_baslik();
-void gerisayim(int n);
+void geri_sayim(int n);
 
 int main() {
     int tekrar;
@@ -14,9 +15,10 @@ int main() {
     manifest_baslik(); 
    
   do {
+    hilal_puan = 0; sueda_puan = 0; mina_puan = 0; lidya_puan = 0; esin_puan = 0; zoktay_puan = 0;
 
     Sleep(1000);
-    gerisayim(3);
+    geri_sayim(3);
     Sleep(1000);   
 
     cevap = soru_sor(1, "Soru 1: Bir pazar sabahi planin iptal olsa tepkin ne olur?", 
@@ -88,16 +90,12 @@ int main() {
     sonucu_goster(hilal_puan, sueda_puan, mina_puan, lidya_puan, esin_puan, zoktay_puan);
 
     Sleep(1000);
-    printf("\nTekrar denemek ister misin? Evet icin 1, Hayir icin 0 girirniz: ");
-    scanf("%d", &tekrar);
+    tekrar = tekrar_baslat();
 
-    getchar();
     printf("\n");
 
-    hilal_puan = 0; sueda_puan = 0; mina_puan = 0; lidya_puan = 0; esin_puan = 0; zoktay_puan = 0;
-
     } while (tekrar == 1);
-    
+    Sleep(1000);
     printf("Sonraki Teste Gorusmek Uzere Iyi Gunler!\n");
 
     return 0;
@@ -154,7 +152,7 @@ void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan
         Sleep(1000);
         printf("\nTest Sonucu Hesaplaniyor...\n");
         Sleep(1000);
-        gerisayim(3);
+        geri_sayim(3);
         Sleep(1000);
         printf("\nSONUC:\n");
                 switch (kazanan_kod) {
@@ -168,7 +166,20 @@ void sonucu_goster(int hilal_puan, int sueda_puan, int mina_puan, int lidya_puan
 
     }
 
-void gerisayim(int n) {
+int tekrar_baslat() {
+    char secim;
+    while(1) { 
+        printf("\nTekrar denemek ister misin? (E/H): ");
+        scanf(" %c", &secim);
+        
+        if (secim == 'E' || secim == 'e') return 1;
+        if (secim == 'H' || secim == 'h') return 0;
+        
+        printf("\n!!! Sadece 'E' (Evet) veya 'H' (Hayir) giriniz !!!\n");
+    }
+}
+
+void geri_sayim(int n) {
 
     if (n == 1) {
         printf("%d...\n", n);
@@ -179,7 +190,7 @@ void gerisayim(int n) {
     
     Sleep(1000); 
 
-    gerisayim(n - 1);
+    geri_sayim(n - 1);
 }
 
 void manifest_baslik() {
